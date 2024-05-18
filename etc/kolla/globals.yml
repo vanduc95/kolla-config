@@ -98,7 +98,6 @@ kolla_external_vip_address: "10.53.101.10"
 ################
 
 # Custom docker registry settings:
-docker_registry: "10.60.129.132:8890"
 # Please read the docs carefully before applying docker_registry_insecure.
 #docker_registry_insecure: "no"
 #docker_registry_username:
