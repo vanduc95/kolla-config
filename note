@@ -35,3 +35,6 @@ https://github.com/vanduc95/kolla-ansible.git
 host_key_checking=False
 pipelining=True
 forks=100
+
+
+filter = [ "a/sda/", "a/sdb/", "a/sdc/", "a/sdd/", "a/sde/", "a/sdf/" "r/.*/"]
