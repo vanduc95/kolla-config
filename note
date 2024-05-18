@@ -26,3 +26,7 @@ vim /etc/docker/daemon.json
 {
   "live-restore": true
 }
+
+tool deploy
+
+https://github.com/vanduc95/kolla-ansible.git
