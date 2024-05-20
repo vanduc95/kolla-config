@@ -36,5 +36,8 @@ host_key_checking=False
 pipelining=True
 forks=100
 
+pvcreate /dev/vdb /dev/vdc
+vgcreate cinder-volumes /dev/vdb /dev/vdc
+
 
 filter = [ "a/sda/", "a/sdb/", "a/sdc/", "a/sdd/", "a/sde/", "a/sdf/" "r/.*/"]
