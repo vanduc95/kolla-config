@@ -50,3 +50,9 @@ filter = [ "a/sda/", "a/sdb/", "a/sdc/", "a/sdd/", "a/sde/", "a/sdf/" "r/.*/"]
 openstack image create "Ubuntu2004" --file ubuntu-20.04-server-cloudimg-amd64.img --disk-format qcow2 --container-format bare --public
 
 network create VLAN100 --provider-physical-network physnet1 --provider-network-type vlan --provider-segment 100 --share --external
+
+
+#cloud-config
+password: 1
+chpasswd: { expire: False }
+ssh_pwauth: True
