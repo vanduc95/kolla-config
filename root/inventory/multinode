@@ -72,6 +72,16 @@ monitoring
 [prometheus:children]
 monitoring
 
+[elasticsearch:children]
+monitoring
+
+# Elasticsearch Curator
+[elasticsearch-curator:children]
+elasticsearch
+
+[kibana:children]
+monitoring
+
 [telegraf:children]
 compute
 control
@@ -578,6 +588,9 @@ monitoring
 
 [prometheus-libvirt-exporter:children]
 compute
+
+[prometheus-haproxy-exporter:children]
+loadbalancer
 
 [prometheus-msteams:children]
 prometheus-alertmanager
