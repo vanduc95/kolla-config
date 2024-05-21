@@ -27,9 +27,14 @@ vim /etc/docker/daemon.json
   "live-restore": true
 }
 
-tool deploy
 
-https://github.com/vanduc95/kolla-ansible.git
+apt install -y fish vim
+
+pip install docker 
+
+pip install python-openstackclient==5.8.1
+
+tool deploy - https://github.com/vanduc95/kolla-ansible.git
 
 [defaults]
 host_key_checking=False
@@ -41,3 +46,7 @@ vgcreate cinder-volumes /dev/vdb /dev/vdc
 
 
 filter = [ "a/sda/", "a/sdb/", "a/sdc/", "a/sdd/", "a/sde/", "a/sdf/" "r/.*/"]
+
+openstack image create "Ubuntu2004" --file ubuntu-20.04-server-cloudimg-amd64.img --disk-format qcow2 --container-format bare --public
+
+network create VLAN100 --provider-physical-network physnet1 --provider-network-type vlan --provider-segment 100 --share --external
