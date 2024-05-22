@@ -53,6 +53,8 @@ network create VLAN100 --provider-physical-network physnet1 --provider-network-t
 
 
 #cloud-config
-password: 1
+password: 123456
 chpasswd: { expire: False }
 ssh_pwauth: True
+
+https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
