@@ -58,3 +58,10 @@ chpasswd: { expire: False }
 ssh_pwauth: True
 
 https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
+
+
+#cloud-config
+chpasswd:
+  list: |
+    root:123456
+  expire: False
