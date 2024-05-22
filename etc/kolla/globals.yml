@@ -900,3 +900,6 @@ nova_backend_ceph: "no"
 # If `etcd_remove_deleted_members` is enabled, Kolla Ansible will automatically
 # remove etcd members from the cluster that are no longer in the inventory.
 #etcd_remove_deleted_members: "no"
+
+grafana_server_port: "6081"
+kibana_server_port: "6082"
