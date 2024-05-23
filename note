@@ -62,3 +62,6 @@ chpasswd:
   list: |
     root:123456
   expire: False
+
+
+wget https://drive.usercontent.google.com/download?id=17U7B6qgHjmQ0qnjb54mCu8I_bpU0MW5F&export=download&authuser=0&confirm=t&uuid=0c65f230-5979-45a2-b759-c997f6ced1aa&at=APZUnTUGCqxz6ddS7VbMFb7flcLd:1716464550661
