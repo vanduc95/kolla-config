@@ -65,3 +65,35 @@ chpasswd:
 
 
 wget https://drive.usercontent.google.com/download?id=17U7B6qgHjmQ0qnjb54mCu8I_bpU0MW5F&export=download&authuser=0&confirm=t&uuid=0c65f230-5979-45a2-b759-c997f6ced1aa&at=APZUnTUGCqxz6ddS7VbMFb7flcLd:1716464550661
+
+
+# All commands will be executed on a Proxmox host
+sudo apt update -y && sudo apt install libguestfs-tools -y
+wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
+# Install qemu-guest-agent on the image. Additional packages can be specified by separating with a comma.
+sudo virt-customize -a jammy-server-cloudimg-amd64.img --install qemu-guest-agent
+# Read and set root user password from file.
+sudo virt-customize -a jammy-server-cloudimg-amd64.img --root-password file:password_root.txt
+# Create an additional user.
+sudo virt-customize -a jammy-server-cloudimg-amd64.img --run-command "useradd -m -s /bin/bash myuser"
+# Set password for that user.
+sudo virt-customize -a jammy-server-cloudimg-amd64.img --password myuser:file:password_myuser.txt
+# Delete temporary password files safely.
+shred -uv password_root.txt password_myuser.txt
+# Optional: Install fish shell.
+sudo virt-customize -a jammy-server-cloudimg-amd64.img --run-command "apt-add-repository ppa:fish-shell/release-3 --yes"
+sudo virt-customize -a jammy-server-cloudimg-amd64.img --install fish
+sudo virt-customize -a jammy-server-cloudimg-amd64.img --run-command "chsh -s /usr/bin/fish myuser"
+# Finally, update all packages in the image.
+sudo virt-customize -a jammy-server-cloudimg-amd64.img --update
+
+# Next, we create a Proxmox VM template.
+# Change values for your bridge and storage and change defaults to your liking.
+sudo qm create 777 --name "ubuntu-20.04-template" --memory 2048 --cores 2 --net0 virtio,bridge=vmbr0
+sudo qm importdisk 777 jammy-server-cloudimg-amd64.img zfs
+sudo qm set 777 --scsihw virtio-scsi-pci --scsi0 zfs:vm-777-disk-0
+sudo qm set 777 --boot c --bootdisk scsi0
+sudo qm set 777 --ide2 zfs:cloudinit
+sudo qm set 777 --serial0 socket --vga serial0
+sudo qm set 777 --agent enabled=1
+sudo qm template 777
