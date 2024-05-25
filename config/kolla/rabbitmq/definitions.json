@@ -1,0 +1,9 @@
+{
+  "vhosts": [
+    {"name": "/"}  ],
+  "users": [
+    {"name": "openstack", "password": "RJSLuNmqZ9rWfoMsTVHfkycAOHD3NPgNOKcsb0K9", "tags": "administrator"}  ],
+  "permissions": [
+    {"user": "openstack", "vhost": "/", "configure": ".*", "write": ".*", "read": ".*"}  ],
+  "policies":[]
+}

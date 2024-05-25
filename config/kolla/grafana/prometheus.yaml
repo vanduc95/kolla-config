@@ -1,0 +1,9 @@
+apiVersion: 1
+
+datasources:
+- name: Prometheus
+  type: prometheus
+  access: proxy
+  orgId: 1
+  url: http://10.53.101.10:9091
+  version: 1

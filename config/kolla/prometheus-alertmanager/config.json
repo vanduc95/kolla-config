@@ -1,0 +1,23 @@
+{
+    "command": "/opt/prometheus_alertmanager/alertmanager --config.file=/etc/prometheus/alertmanager.yml --web.listen-address=10.53.101.10:9093 --web.external-url=http://10.53.101.10:9093 --cluster.listen-address= --storage.path /var/lib/prometheus",
+    "config_files": [
+        {
+            "source": "/var/lib/kolla/config_files/prometheus-alertmanager.yml",
+            "dest": "/etc/prometheus/alertmanager.yml",
+            "owner": "prometheus",
+            "perm": "0600"
+        }
+    ],
+    "permissions": [
+        {
+            "path": "/data",
+            "owner": "prometheus:kolla",
+            "recurse": true
+        },
+        {
+            "path": "/var/log/kolla/prometheus",
+            "owner": "prometheus:kolla",
+            "recurse": true
+        }
+    ]
+}

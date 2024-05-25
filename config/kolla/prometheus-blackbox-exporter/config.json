@@ -1,0 +1,18 @@
+{
+    "command": "/opt/blackbox_exporter/blackbox_exporter --config.file=/etc/prometheus/blackbox.yml --web.listen-address=10.53.101.10:9115 --log.level=info",
+    "config_files": [
+        {
+            "source": "/var/lib/kolla/config_files/prometheus-blackbox-exporter.yml",
+            "dest": "/etc/prometheus/blackbox.yml",
+            "owner": "prometheus",
+            "perm": "0600"
+        }
+    ],
+    "permissions": [
+        {
+            "path": "/var/log/kolla/prometheus",
+            "owner": "prometheus:kolla",
+            "recurse": true
+        }
+    ]
+}

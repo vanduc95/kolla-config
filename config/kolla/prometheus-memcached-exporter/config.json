@@ -1,0 +1,11 @@
+{
+    "command": "/opt/memcached_exporter/memcached_exporter --web.listen-address 10.53.101.10:9150 --memcached.address 10.53.101.10:11211",
+    "config_files": [],
+    "permissions": [
+        {
+            "path": "/var/log/kolla/prometheus",
+            "owner": "prometheus:kolla",
+            "recurse": true
+        }
+    ]
+}

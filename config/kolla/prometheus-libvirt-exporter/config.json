@@ -1,0 +1,4 @@
+{
+    "command": "/opt/libvirt-exporter --web.listen-address=10.53.101.10:9177",
+    "config_files": []
+}

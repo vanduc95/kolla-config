@@ -1,0 +1,11 @@
+{
+    "command": "/opt/cadvisor --port=18080 --log_dir=/var/log/kolla/prometheus --docker_only --store_container_labels=false --disable_metrics=percpu,referenced_memory,cpu_topology,resctrl,udp,advtcp,sched,hugetlb,memory_numa,tcp,process",
+    "config_files": [],
+    "permissions": [
+        {
+            "path": "/var/log/kolla/prometheus",
+            "owner": "prometheus:prometheus",
+            "recurse": true
+        }
+    ]
+}

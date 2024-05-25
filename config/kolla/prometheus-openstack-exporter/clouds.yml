@@ -1,0 +1,14 @@
+clouds:
+ default:
+   region_name: RegionOne
+   identity_api_version: 3
+   identity_interface: internal
+   volume_api_version: 3
+   auth:
+     username: admin
+     password: vLOne3BEbIPINalSoGtzWOcCdjJDXXCZXc2i9V2O
+     project_name: admin
+     project_domain_name: 'Default'
+     user_domain_name: 'Default'
+     cacert: 
+     auth_url: http://10.53.101.10:35357/v3

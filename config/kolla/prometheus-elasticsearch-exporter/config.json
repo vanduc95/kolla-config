@@ -1,0 +1,11 @@
+{
+    "command": "/opt/elasticsearch_exporter/elasticsearch_exporter --es.uri http://10.53.101.10:9200 --web.listen-address 10.53.101.10:9108",
+    "config_files": [],
+    "permissions": [
+        {
+            "path": "/var/log/kolla/prometheus",
+            "owner": "prometheus:kolla",
+            "recurse": true
+        }
+    ]
+}

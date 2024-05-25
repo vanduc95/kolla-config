@@ -1,0 +1,66 @@
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - 10.53.101.10:9093
+global:
+  evaluation_interval: 15s
+  external_labels:
+    monitor: kolla
+  scrape_interval: 60s
+  scrape_timeout: 10s
+scrape_configs:
+- job_name: prometheus
+  static_configs:
+  - targets:
+    - 10.53.101.10:9091
+- job_name: node
+  static_configs:
+  - targets:
+    - 10.53.101.10:9100
+    - 10.53.101.11:9100
+- job_name: mysqld
+  static_configs:
+  - targets:
+    - 10.53.101.10:9104
+- job_name: rabbitmq
+  static_configs:
+  - targets:
+    - 10.53.101.10:15692
+- job_name: memcached
+  static_configs:
+  - targets:
+    - 10.53.101.10:9150
+- job_name: cadvisor
+  static_configs:
+  - targets:
+    - 10.53.101.10:18080
+    - 10.53.101.11:18080
+- job_name: fluentd
+  static_configs:
+  - targets:
+    - 10.53.101.10:24231
+    - 10.53.101.11:24231
+- honor_labels: true
+  job_name: openstack_exporter
+  scrape_interval: 60s
+  scrape_timeout: 45s
+  static_configs:
+  - targets:
+    - 10.53.101.10:9198
+- job_name: elasticsearch_exporter
+  scrape_interval: 60s
+  static_configs:
+  - targets:
+    - 10.53.101.10:9108
+- honor_labels: true
+  job_name: libvirt_exporter
+  scrape_interval: 60s
+  static_configs:
+  - targets:
+    - 10.53.101.10:9177
+    - 10.53.101.11:9177
+- job_name: alertmanager
+  static_configs:
+  - targets:
+    - 10.53.101.10:9093
