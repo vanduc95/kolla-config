@@ -97,3 +97,7 @@ sudo qm set 777 --ide2 zfs:cloudinit
 sudo qm set 777 --serial0 socket --vga serial0
 sudo qm set 777 --agent enabled=1
 sudo qm template 777
+
+ghp
+_ducnv41kwMOSbiSN
+ducnv41f9LbzCMqzCRJHLPmwHlnc0lx8kX
