@@ -101,3 +101,9 @@ sudo qm template 777
 ghp
 _ducnv41kwMOSbiSN
 ducnv41f9LbzCMqzCRJHLPmwHlnc0lx8kX
+
+qemu-img convert -f vmdk Linux.vmdk -O qcow2 vmware_linux.qcow2
+
+openstack image create "Ubuntu22.04_pass_default" --file jammy-server-cloudimg-amd64.img --disk-format qcow2 --container-format bare --public
+
+openstack image create "vmware_poc" --file /root/vmware_linux.qcow2 --disk-format qcow2 --container-format bare --public
